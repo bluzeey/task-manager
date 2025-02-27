@@ -23,22 +23,24 @@ const Dashboard = () => {
   };
 
   const deleteTask = (id: string) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    setTasks(tasks.filter((task: Task) => task.id !== id));
   };
 
   const updateTask = (updatedTask: Task) => {
     setTasks(
-      tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+      tasks.map((task: Task) =>
+        task.id === updatedTask.id ? updatedTask : task
+      )
     );
   };
 
   const filteredTasks = tasks
     .filter(
-      (task) =>
+      (task: { title: string; description: string }) =>
         task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         task.description.toLowerCase().includes(searchQuery.toLowerCase())
     )
-    .filter((task) =>
+    .filter((task: { priority: string }) =>
       priorityFilter ? task.priority === priorityFilter : true
     );
 

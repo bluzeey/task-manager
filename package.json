@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",
+    "@testing-library/jest-dom": "^6.6.3",
     "@types/jest": "^29.5.14",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
