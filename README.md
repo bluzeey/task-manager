@@ -1,54 +1,97 @@
-# React + TypeScript + Vite
+# Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Task Manager is a straightforward task management application built with React and TypeScript using Vite for blazing fast development. This application provides core features such as adding, editing, and deleting tasks; searching and filtering tasks; and persisting data using localStorage. The UI is styled with Tailwind CSS and optionally enhanced using Shadcn components.
 
-Currently, two official plugins are available:
+--------------------------------------------------
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Built With](#built-with)
+- [License](#license)
 
-## Expanding the ESLint configuration
+--------------------------------------------------
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Dashboard view to display and manage tasks
+- Create, edit, and delete tasks
+- Task details include title, description, due date, and priority (High, Medium, Low)
+- Search functionality for quick task look-up
+- Filtering tasks based on priority and status
+- Data persistence using the browser’s localStorage
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+--------------------------------------------------
+## Installation
+
+1. Ensure you have Node.js installed on your machine.
+2. Clone this repository:
+   ```
+   git clone https://github.com/your-username/task-manager.git
+   ```
+3. Change into the project directory:
+   ```
+   cd task-manager
+   ```
+4. Install the project dependencies using pnpm:
+   ```
+   pnpm install
+   ```
+5. Configure Tailwind CSS by ensuring the Tailwind directives are included in the CSS files (see [Tailwind CSS docs](https://tailwindcss.com/docs/installation)).
+
+--------------------------------------------------
+## Usage
+
+1. Start the development server with Vite:
+   ```
+   pnpm run dev
+   ```
+2. Open your browser and navigate to the URL provided in the terminal (usually [http://localhost:3000](http://localhost:3000)) to see the application in action.
+3. Use the dashboard to add new tasks, search/filter through existing tasks, and manage task details. Task data is automatically stored in your browser’s localStorage.
+
+--------------------------------------------------
+## Project Structure
+
+The project is organized as follows:
+
+```
+/task-manager/
+├── /public/
+│   └── index.html
+├── /src/
+│   ├── /components/
+│   │   ├── Dashboard.tsx
+│   │   ├── TaskForm.tsx
+│   │   ├── TaskList.tsx
+│   │   ├── TaskItem.tsx   (optional: for individual task display)
+│   │   ├── TaskSearch.tsx
+│   │   └── Filter.tsx
+│   ├── /styles/
+│   │   └── tailwind.css
+│   ├── /utils/
+│   │   └── storage.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+--------------------------------------------------
+## Built With
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React with TypeScript
+- Vite for fast development
+- pnpm for package management
+- Tailwind CSS for styling
+- Shadcn (optional) for component enhancements
+- localStorage for client-side persistence
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+--------------------------------------------------
+## License
+
+This project is licensed under the MIT License.
